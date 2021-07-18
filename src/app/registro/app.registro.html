@@ -1,0 +1,38 @@
+<div class="header home">
+    <div class="container-fluid">
+        <div class="hero row align-items-center">
+            <div class="col-lg-7 col-md-6">
+                <div class="about-img">
+                    <h2>Registre sus </h2>
+                    <h2><span>Tareas</span> ahora</h2>
+                    <p>Puede registrarse como usuario de la aplicación</p>
+                    <a class="btn" href="">Leer mas...</a>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6">
+                <div class="about-text">
+                    <div class="form" *ngFor="let event of usuarios">
+                        <h3>Datos de ingreso</h3>
+                        <form>
+                            <input class="form-control" type="text" placeholder="Su nombre" #nombreUsr value="{{event.nombreUsr}}">
+                            <input class="form-control" type="text" placeholder="Su Apellido" #apellidoUsr value="{{event.apellidoUsr}}">
+                            <div class="control-group">
+                                <select class="custom-select" #generoUsr>
+                                    <option selected>Genero</option>
+                                    <option value="1">Masuculino</option>
+                                    <option value="2">Femenino</option>
+                                    <option value="3">No responde</option>
+                                </select>
+                            </div>
+                            <input class="form-control" type="text" placeholder="Correo" #correoUsr value="{{event.correoUsr}}">
+                            <textarea class="form-control" placeholder="Cargo" #cargoUsr value="{{event.cargoUsr}}"></textarea>
+                            <button (click)="registraUsuario(nombreUsr, apellidoUsr, generoUsr, correoUsr, cargoUsr )" class="btn btn-block">Registrarse</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
