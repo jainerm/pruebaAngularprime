@@ -15,7 +15,7 @@
                         <h3>Datos de ingreso</h3>
                         <form *ngFor="let item of ingreso">
                             <input class="form-control" type="text" #correoUsr placeholder="Usuario o correo" value="{{item.correoUsr}}">
-                            <input class="form-control" type="text" #contrasenaUsr placeholder="Contraseña" value="{{item.contrasenaUsr}}">
+                            <input class="form-control" type="password" #contrasenaUsr placeholder="Contraseña" value="{{item.contrasenaUsr}}">
                             <button (click)="ingresaUsr(correoUsr, contrasenaUsr)" class="btn btn-block">Ingresar</button>
                         </form>
                     </div>
