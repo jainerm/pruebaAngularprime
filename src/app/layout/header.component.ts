@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IngresoService } from '../services/ingreso.services';
 
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit  {
+  @Input() public usuario: string='';
+  nomusuario: string = '';
+  constructor(public _ingresoservice: IngresoService) {
+
+  }
   
   datosMenu = [
     {
@@ -23,7 +29,14 @@ export class HeaderComponent {
       'icon': 'fas fa-band-aid',
       'url': '/registro'
     },
-]
+  ]
+
+  ngOnInit() {
+    this._ingresoservice.enviarMensajeObservable.subscribe(response => {
+      this.nomusuario = response;
+      console.log("enviar mensaje: ",this.nomusuario)
+    });
+  }
 
   evtRegistrarse() {
     console.log("Registrarse...");

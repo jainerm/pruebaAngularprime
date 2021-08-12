@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 // firebase
@@ -34,6 +34,7 @@ import { IngresoService } from './services/ingreso.services';
     // AngularFireModule.initializeApp(environment.firebase),
     // AngularFireDatabaseModule,
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [UsuarioService, IngresoService],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { UsuarioService } from '../services/usuario.services';
+import { IngresoService } from '../services/ingreso.services';
 import { Usuario } from "./../models/usuario.models";
 
 
@@ -8,13 +9,23 @@ import { Usuario } from "./../models/usuario.models";
   templateUrl: './app.tareas.html',
 })
 
-export class AppTareas {
+export class AppTareas implements OnInit {
   usuarios: Array<Usuario> = [];
-  constructor(private _usuarioService: UsuarioService) {
+  public siRegistrado = false;
+  nuvousuario: string = '';
+  constructor(private _usuarioService: UsuarioService, private _ingresoService: IngresoService) {
       this.usuarios = [];
-
   }
   ngOnInit() {
-      this.usuarios = this._usuarioService.getData();
+    this.usuarios = this._usuarioService.getData();
+    this.usuarios.forEach(item => {
+      if(item.nombreUsr != 'Sig-in') {
+        this.siRegistrado = true;
+        console.log("Cargado y listo tareas...", item.nombreUsr);
+      }
+     });
+
+  }
+  ngAfterViewInit() {
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { IngresoService } from './../services/ingreso.services';
 import { Ingreso } from './../models/ingreso.models';
 
@@ -7,17 +7,21 @@ import { Ingreso } from './../models/ingreso.models';
   templateUrl: './cuerpo.component.html',
 })
 
-export class CuerpoComponent {
+export class CuerpoComponent implements OnInit {
+  //nuvousuario: string='';
   ingreso: Array<Ingreso> = [];
-  constructor(private _ingresoService: IngresoService) {
+  constructor(public _ingresoService: IngresoService) {
 
   }
   ingresaUsr(inpUsuario: HTMLInputElement, inpContrasena: HTMLInputElement) {
-        console.log(inpUsuario.value, inpContrasena.value );
-        return false;
+    //this.nuvousuario = inpUsuario.value;
+    this._ingresoService.setData(inpUsuario.value);
+    console.log(this._ingresoService.nombreUsuario);
+    return false;
   }
+
   ngOnInit() {
     this.ingreso = this._ingresoService.getData();
-
-}
+    return false;
+  }
 }

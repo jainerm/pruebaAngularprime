@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class="topbar-col">
-                            <a href="#"><i class="fa fa-person"></i>JAINERM</a>
+                            <a href="#"><i class="fa fa-person"></i>{{_ingresoservice.nombreUsuario}}</a>
                         </div>
                     </div>
                     <div class="navbar navbar-expand-lg bg-light navbar-light">
@@ -39,7 +39,7 @@
 
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="nav-item ml-auto" *ngFor="let item of datosMenu">
-                                <a href="{{item.url}}" class="nav-link"><i class="{{item.icon}}"></i>{{item.titulo}}</a>
+                                <a routerLink="{{item.url}}" class="nav-link"><i class="{{item.icon}}"></i>{{item.titulo}}</a>
                             </div>
                         </div>
                     </div>
